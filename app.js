@@ -52,9 +52,3 @@ app.post("/", function (req, res) {
 app.listen(3000, function () {
   console.log("server started");
 });
-
-// api key
-// 2ea048743e2b14abb020f60c6826bb36-us10
-
-// list
-// a54ff13c1a;
