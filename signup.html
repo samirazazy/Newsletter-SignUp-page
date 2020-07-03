@@ -25,34 +25,17 @@
     <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
     <meta name="theme-color" content="#563d7c">
 
-
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
     <!-- Custom styles for this template -->
-    <link href="style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
-    <form class="form-signin">
+    <form class="form-signin" action="/" method="post">
         <img class="mb-4" src="images/letter.png" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">SignUp to my newsletter</hh1>
-            <input type="text" class="form-control top" placeholder="First name" required autofocus>
-            <input type="text" class="form-control middle" placeholder="Last name" required>
-            <input type="email" class="form-control bottom" placeholder="Email address" required>
+            <input name="fName" type="text" class="form-control top" placeholder="First name" required autofocus>
+            <input name="lName" type="text" class="form-control middle" placeholder="Last name" required>
+            <input name="email" type="email" class="form-control bottom" placeholder="Email address" required>
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">Subscribe</button>
             <p class="mt-5 mb-3 text-muted">&copy; Azazy 2020</p>
