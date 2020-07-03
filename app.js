@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
+const https = require("https");
 
 const app = express();
 
@@ -12,12 +13,48 @@ app.get("/", function (req, res) {
 });
 
 app.post("/", function (req, res) {
-  firstName = req.body.fName;
-  firstName = req.body.lName;
-  email = req.body.email;
-  console.log(firstName, firstName, email);
+  const firstName = req.body.fName;
+  const lastName = req.body.lName;
+  const email = req.body.email;
+
+  const data = {
+    members: [
+      {
+        email_address: email,
+        status: "subscribed",
+        merge_fields: {
+          FNAME: firstName,
+          LNAME: lastName,
+        },
+      },
+    ],
+  };
+
+  const jsonData = JSON.stringify(data);
+
+  const url = "https://us10.api.mailchimp.com/3.0/lists/a54ff13c1a";
+
+  const options = {
+    method: "POST",
+    auth: "azazy1:2ea048743e2b14abb020f60c6826bb36-us10",
+  };
+
+  const request = https.request(url, options, function (response) {
+    response.on("data", function (data) {
+      console.log(JSON.parse(data));
+    });
+  });
+
+  request.write(jsonData);
+  request.end();
 });
 
 app.listen(3000, function () {
   console.log("server started");
 });
+
+// api key
+// 2ea048743e2b14abb020f60c6826bb36-us10
+
+// list
+// a54ff13c1a;
